@@ -1,3 +1,5 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
 'use strict';
 
 global._ = require('lodash');
@@ -15,4 +17,4 @@ global.config = nconf.get(nconf.get('env'));
 require('../util/mq.js');
 global.mq.start('examplequeue', (msg) => {
 	console.log(`[MSG] : ${msg}`);
-});;
+});

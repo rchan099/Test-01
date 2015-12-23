@@ -1,3 +1,5 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
 'use strict';
 
 global._ = require('lodash');
@@ -19,7 +21,7 @@ global.mq.start();
 let index = 1;
 setInterval(() => {
 	let text = '';
-	if (index%2 == 0)
+	if (index%2 === 0)
 		text = 'test test test';
 	else
 		text = 'blah blah blah';

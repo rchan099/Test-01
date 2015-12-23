@@ -1,3 +1,5 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
 'use strict';
 
 global._ = require('lodash');
@@ -14,18 +16,18 @@ global.config = nconf.get(nconf.get('env'));
 
 require('../util/database.js');
 
-db.User.findAll({ include: [{ model: db.City, include:[{ model: db.Country }] }] }).then((result) => {
-	_.forEach(result, (value, key) => {
+global.db.User.findAll({ include: [{ model: global.db.City, include:[{ model: global.db.Country }] }] }).then((result) => {
+	global._.forEach(result, (value, key) => {
 		//console.log(JSON.stringify(value));
 		console.log(value.mapAttributes(value));
 	});
 });
 
-db.City.find({ where: { name: 'Chengdu' } }).then((result) => {
+global.db.City.find({ where: { name: 'Chengdu' } }).then((result) => {
 	if (result === null) {
 		console.log('not exists');
 		try {
-			db.City.create({ name: 'Chengdu', createAt: new Date() }).then(
+			global.db.City.create({ name: 'Chengdu', createAt: new Date() }).then(
 				(result) => {
 				 	console.log('created');
 				},
@@ -44,10 +46,10 @@ db.City.find({ where: { name: 'Chengdu' } }).then((result) => {
 });
 
 
-db.City.findAndCountAll({ where: ["name LIKE '%i%'"], offset: 0, limit: 10}).then((result) => {
+global.db.City.findAndCountAll({ where: ["name LIKE '%i%'"], offset: 0, limit: 10}).then((result) => {
   console.log(result.count);
   //console.log(result.rows);
-  _.forEach(result.rows, (value, key) => {
+  global._.forEach(result.rows, (value, key) => {
 		console.log(value.mapAttributes(value));
 	});
 });

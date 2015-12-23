@@ -1,3 +1,5 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
 'use strict';
 
 const Code = require('code');   // assertion library

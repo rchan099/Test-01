@@ -1,11 +1,13 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
 'use strict';
-let amqp = require('amqplib/callback_api');
 
 class MessageQueue {
 
 	// constructor
 	constructor() {
-		this.config = config.mq;
+		this.amqp = require('amqplib/callback_api');
+		this.config = global.config.mq;
 		this.amqpConn = null;
 		this.channel = null;
 		this.offlineQueue = [];
@@ -13,7 +15,7 @@ class MessageQueue {
 
 	// initialization
 	start(queue, callback) {
-		amqp.connect(`${this.config.url}?heartbeat=60`, (err, conn) => {
+		this.amqp.connect(`${this.config.url}?heartbeat=60`, (err, conn) => {
 			if (err) {
 				console.error('[MQ]', err.message);
 				return setTimeout(this.start, 1000);
@@ -25,7 +27,7 @@ class MessageQueue {
 			});
 			conn.on('close', () => {
 				console.error('[MQ] reconnecting');
-				return setTimeout(start, 1000);
+				return setTimeout(this.start, 1000);
 			});
 
 			console.log('[MQ] connected');

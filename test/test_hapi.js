@@ -1,3 +1,5 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
 'use strict';
 
 let Hapi = require('hapi');

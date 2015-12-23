@@ -1,3 +1,6 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
+
 /**
  * User model
  * @param  {[type]} sequelize [description]

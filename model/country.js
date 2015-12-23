@@ -1,3 +1,6 @@
+/*jshint esnext: true*/
+/*jshint node: true*/
+
 /**
  * Country model
  * @param  {[type]} sequelize [description]

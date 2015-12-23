@@ -1,0 +1,32 @@
+{
+  "name": "hapitest01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {
+    "amqp": "^0.2.4",
+    "amqplib": "^0.4.0",
+    "code": "^2.0.1",
+    "good": "^6.4.0",
+    "good-console": "^5.2.0",
+    "hapi": "^11.1.2",
+    "inert": "^3.2.0",
+    "lab": "^8.0.0",
+    "lodash": "^3.10.1",
+    "math": "0.0.3",
+    "mocha": "^2.3.4",
+    "moment": "^2.10.6",
+    "nconf": "^0.8.2",
+    "path": "^0.12.7",
+    "pg": "^4.4.3",
+    "pg-hstore": "^2.3.2",
+    "readdir": "0.0.13",
+    "sequelize": "^3.14.2"
+  }
+}

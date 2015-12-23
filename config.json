@@ -1,0 +1,31 @@
+{
+	"env" 				: "dev",
+	"dev" 				: {
+		"http"			: {
+			"port"		: 3000
+		},
+		"database"		: {
+			"heroku"	: "",
+			"host"		: "localhost",
+			"port"		: 5432,
+			"dialect"	: "postgres",
+			"logging"	: false,
+			"schema" 	: "test",
+			"user" 		: "appledev112",
+			"password" 	: "",
+			"pool"		: {
+				"max"	: 5,
+				"min"	: 0,
+				"idle"	: 10000
+			},
+			"omitNull"	: true
+		},
+		"mq"			: {
+			"url"		: "amqp://uyoicoul:Mlh3iH0kHvBX2KErpA5Djend4dvErv4Q@jaguar.rmq.cloudamqp.com/uyoicoul",
+			"noAck"		: true
+		}
+	},
+	"prod"				: {
+
+	}
+}

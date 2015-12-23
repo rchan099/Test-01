@@ -7,7 +7,6 @@ let start = (x) => {
 
 start(text);
 
-
 class MQ {
 	constructor() {
 		this.identity = 0;

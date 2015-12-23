@@ -4,7 +4,7 @@
  * @param  {[type]} DataTypes [description]
  * @return {[type]}           [description]
  */
-module.exports = function(sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     var User = sequelize.define('user', {
         id: { type: DataTypes.INTEGER, allowNull: true, primaryKey: true, autoIncrement: true },
         name: { type: DataTypes.STRING, allowNull: true, validate: { max: 200 } },

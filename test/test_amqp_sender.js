@@ -1,8 +1,10 @@
-var amqp = require('amqp');
-var connection = amqp.createConnection({ url: 'amqp://uyoicoul:Mlh3iH0kHvBX2KErpA5Djend4dvErv4Q@jaguar.rmq.cloudamqp.com/uyoicoul' });
+'use strict';
+
+let amqp = require('amqp');
+let connection = amqp.createConnection({ url: 'amqp://uyoicoul:Mlh3iH0kHvBX2KErpA5Djend4dvErv4Q@jaguar.rmq.cloudamqp.com/uyoicoul' });
 
 // Wait for connection to become established.
-connection.on('ready', function () {
+connection.on('ready', () => {
   // Use the default 'amq.topic' exchange
   console.log('ready');
 

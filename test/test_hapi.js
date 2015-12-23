@@ -1,10 +1,11 @@
-var Hapi = require('hapi');
-var Good = require('good');
+'use strict';
 
-var server = new Hapi.Server();
+let Hapi = require('hapi');
+let Good = require('good');
+let server = new Hapi.Server();
 server.connection({ port: 3000 });
 
-server.register(require('inert'), function (err) {
+server.register(require('inert'), (err) => {
     if (err) {
         throw err;
     }
@@ -13,49 +14,49 @@ server.register(require('inert'), function (err) {
       {
           method: 'GET',
           path: '/hello',
-          handler: function (request, reply) {
+          handler: (request, reply) => {
               reply.file('./public/hello.html');
           }
       },
       {
         method: 'GET',
         path: '/api/items',
-        handler: function(request, reply) {
+        handler: (request, reply) => {
           reply('Get item id');
         }
       },
       {
         method: 'GET',
         path: '/api/items/{id}',
-        handler: function(request, reply) {
+        handler: (request, reply) => {
           reply('Get item id: ' + request.params.id);
         }
       },
       {
         method: 'POST',
         path: '/api/items',
-        handler: function(request, reply) {
+        handler: (request, reply) => {
           reply('Post item');
         }
       },
       {
         method: 'PUT',
         path: '/api/items/{id}',
-        handler: function(request, reply) {
+        handler: (request, reply) => {
           reply('Put item id: ' + request.params.id);
         }
       },
       {
         method: 'DELETE',
         path: '/api/items/{id}',
-        handler: function(request, reply) {
+        handler: (request, reply) => {
           reply('Delete item id: ' + request.params.id);
         }
       },
       {
         method: 'GET',
         path: '/',
-        handler: function(request, reply) {
+        handler: (request, reply) => {
           reply('Hello world');
         }
       }
@@ -73,16 +74,16 @@ server.register({
             }
         }]
     }
-}, function (err) {
+}, (err) => {
     if (err) {
         throw err; // something bad happened loading the plugin
     }
 
-    server.start(function () {
+    server.start(() => {
         server.log('info', 'Server running at: ' + server.info.uri);
     });
 });
 
-/*server.start(function () {
+/*server.start(() => {
     console.log('Server running at:', server.info.uri);
 });*/
